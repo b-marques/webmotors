@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div<{ isFocused: boolean }>`
-  max-width: 500px;
   display: flex;
   align-items: center;
-  border-radius: 3px 1px 1px 3px;
+  border-radius: 3px 3px 3px 3px;
   border: 1px solid ${props => props.theme.secondaryVariant2};
 
   ${props =>
@@ -40,6 +39,8 @@ export const Input = styled.input`
   border: 0 solid;
   outline: 0;
   color: ${props => props.theme.secondaryVariant1};
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &::placeholder {
     color: ${props => props.theme.secondaryVariant2};
