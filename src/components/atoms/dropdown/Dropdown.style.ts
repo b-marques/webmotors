@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   position: relative;
-  max-width: 500px;
 `
 
 export const Header = styled.button<{ isExpanded: boolean }>`
@@ -49,6 +48,7 @@ export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean }>`
     props.hasLabel ? props.theme.secondaryVariant1 : props.theme.secondaryVariant2};
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 `
 
 export const Icon = styled.div<{ isExpanded: boolean }>`
