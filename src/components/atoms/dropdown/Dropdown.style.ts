@@ -10,9 +10,10 @@ export const Header = styled.button<{ isExpanded: boolean }>`
   display: flex;
   background-color: ${props => props.theme.white};
   align-items: center;
-  padding: 0.5rem;
-  font-family: inherit;
+  padding: 1rem 0.5rem;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
+  font-weight: 500;
   color: ${props => props.theme.secondary_variant_2};
   outline: 0;
 
@@ -40,8 +41,9 @@ export const Header = styled.button<{ isExpanded: boolean }>`
   }
 `
 
-export const Title = styled.h1<{ isExpanded: boolean; hasLabel: boolean }>`
+export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean }>`
   font-size: 1rem;
+  font-weight: 600;
   padding: 0 5px;
   color: ${props =>
     props.hasLabel ? props.theme.secondary_variant_1 : props.theme.secondary_variant_2};
