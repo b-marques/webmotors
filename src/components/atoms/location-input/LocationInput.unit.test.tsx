@@ -6,14 +6,14 @@ import { LocationInput } from '.'
 
 afterEach(cleanup)
 
-let locationInput = 'Floripa'
+let locationInputValue = 'Floripa'
 function setLocationInput(newInput: string) {
-  locationInput = newInput
+  locationInputValue = newInput
 }
 
 test('render location input', async () => {
   const { rerender } = render(
-    <LocationInput input={locationInput} setInput={() => setLocationInput('')} />,
+    <LocationInput value={locationInputValue} setValue={() => setLocationInput('')} />,
   )
 
   expect(screen.getByTestId(/location-icon/i)).toBeTruthy()
@@ -23,7 +23,7 @@ test('render location input', async () => {
 
   fireEvent.click(screen.getByTestId(/clear-input-icon/))
 
-  rerender(<LocationInput input={locationInput} setInput={setLocationInput} />)
+  rerender(<LocationInput value={locationInputValue} setValue={setLocationInput} />)
 
   expect((screen.getByTestId(/location-input/i) as HTMLInputElement).value).toBe('')
 })

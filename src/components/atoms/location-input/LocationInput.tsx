@@ -4,12 +4,12 @@ import { FaMapMarkerAlt, FaTimesCircle } from 'react-icons/fa'
 import { Container, LocationIcon, Prefix, Input, ClearInputIcon } from './LocationInput.style'
 
 type LocationInputProps = {
-  input: string
-  setInput: (newInput: string) => void
+  value: string
+  setValue: (newInput: string) => void
 }
 
 export const LocationInput = (props: LocationInputProps) => {
-  const { input, setInput } = props
+  const { value, setValue } = props
   const [isFocused, setIsFocused] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -31,10 +31,10 @@ export const LocationInput = (props: LocationInputProps) => {
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder="Cidade - UF..."
-        value={input}
-        onChange={e => setInput(e.target.value)}
+        value={value}
+        onChange={e => setValue(e.target.value)}
       />
-      <ClearInputIcon data-testid="clear-input-icon" onClick={() => setInput('')}>
+      <ClearInputIcon data-testid="clear-input-icon" onClick={() => setValue('')}>
         <FaTimesCircle />
       </ClearInputIcon>
     </Container>
