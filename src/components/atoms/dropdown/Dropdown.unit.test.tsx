@@ -2,7 +2,7 @@ import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup, screen, fireEvent } from '@testing-library/react'
 
-import { Dropdown } from './Dropdown'
+import { Dropdown } from '.'
 
 afterEach(cleanup)
 
