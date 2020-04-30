@@ -14,30 +14,30 @@ export const Header = styled.button<{ isExpanded: boolean }>`
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: ${props => props.theme.secondary_variant_2};
+  color: ${props => props.theme.secondaryVariant2};
   outline: 0;
 
   ${props =>
     props.isExpanded
       ? `
-      border: solid 1px ${props.theme.secondary_variant_1};
+      border: solid 1px ${props.theme.secondaryVariant1};
       border-radius: 3px 3px 0 0;
       `
       : `
-      border: solid 1px ${props.theme.secondary_variant_2};
+      border: solid 1px ${props.theme.secondaryVariant2};
       border-radius: 3px;
       `};
 
   &:focus {
-    border: solid 1px ${props => props.theme.secondary_variant_1};
+    border: solid 1px ${props => props.theme.secondaryVariant1};
   }
 
   &:disabled {
-    border: solid 1px ${props => props.theme.secondary_variant_3};
+    border: solid 1px ${props => props.theme.secondaryVariant3};
   }
 
   &:disabled * {
-    color: ${props => props.theme.secondary_variant_2};
+    color: ${props => props.theme.secondaryVariant2};
   }
 `
 
@@ -46,7 +46,7 @@ export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean }>`
   font-weight: 600;
   padding: 0 5px;
   color: ${props =>
-    props.hasLabel ? props.theme.secondary_variant_1 : props.theme.secondary_variant_2};
+    props.hasLabel ? props.theme.secondaryVariant1 : props.theme.secondaryVariant2};
   overflow: hidden;
   text-overflow: ellipsis;
 `
@@ -57,7 +57,7 @@ export const Icon = styled.div<{ isExpanded: boolean }>`
   transition: transform 200ms linear;
   ${props => (props.isExpanded ? `transform: rotate(180deg)` : ``)};
   margin-left: auto;
-  color: ${props => props.theme.secondary_variant_1};
+  color: ${props => props.theme.secondaryVariant1};
 `
 
 export const List = styled.ul`
@@ -65,7 +65,7 @@ export const List = styled.ul`
   width: 100%;
   overflow-y: auto;
   list-style: none;
-  border: solid 1px ${props => props.theme.secondary_variant_2};
+  border: solid 1px ${props => props.theme.secondaryVariant2};
   border-radius: 0 0 3px 3px;
   border-top: none;
   z-index: 1;

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { FaCaretDown } from 'react-icons/fa'
 
 import { useOutsideClick } from 'src/utils/hooks/useOutsideClick'
+
 import { Container, Header, Title, Icon, List, Item } from './Dropdown.style'
 
 type DropdownItem = {

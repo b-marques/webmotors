@@ -5,12 +5,12 @@ export const Container = styled.div<{ isFocused: boolean }>`
   display: flex;
   align-items: center;
   border-radius: 3px 1px 1px 3px;
-  border: 1px solid ${props => props.theme.secondary_variant_2};
+  border: 1px solid ${props => props.theme.secondaryVariant2};
 
   ${props =>
     props.isFocused
-      ? `border: 1px solid ${props.theme.secondary_variant_1}`
-      : `border: 1px solid ${props.theme.secondary_variant_2}`}
+      ? `border: 1px solid ${props.theme.secondaryVariant1}`
+      : `border: 1px solid ${props.theme.secondaryVariant2}`}
 `
 
 export const LocationIcon = styled.div`
@@ -28,7 +28,7 @@ export const Prefix = styled.span`
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1rem;
-  color: ${props => props.theme.secondary_variant_2};
+  color: ${props => props.theme.secondaryVariant2};
 `
 
 export const Input = styled.input`
@@ -39,17 +39,17 @@ export const Input = styled.input`
   font-size: 1rem;
   border: 0 solid;
   outline: 0;
-  color: ${props => props.theme.secondary_variant_1};
+  color: ${props => props.theme.secondaryVariant1};
 
   &::placeholder {
-    color: ${props => props.theme.secondary_variant_2};
+    color: ${props => props.theme.secondaryVariant2};
   }
 `
 export const ClearInputIcon = styled.div`
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  color: ${props => props.theme.secondary_variant_2};
+  color: ${props => props.theme.secondaryVariant2};
 
   &:hover {
     color: ${props => props.theme.primary};
