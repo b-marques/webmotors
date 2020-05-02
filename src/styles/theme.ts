@@ -5,4 +5,5 @@ export const theme = {
   secondaryVariant2: '#b6b6b6',
   secondaryVariant3: '#dfdfdf',
   white: '#fff',
+  yellow: '#e5a24c',
 }
