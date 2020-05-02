@@ -65,6 +65,7 @@ export const Icon = styled.div<{ isExpanded: boolean }>`
 export const List = styled.ul`
   position: absolute;
   width: 100%;
+  max-height: 185px;
   overflow-y: auto;
   list-style: none;
   border: solid 1px ${props => props.theme.secondaryVariant2};
