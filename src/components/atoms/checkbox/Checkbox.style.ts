@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: flex-end;
+  color: ${props => props.theme.secondaryVariant2};
 `
 
 export const Checkmark = styled.div`
