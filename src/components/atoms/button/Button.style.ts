@@ -14,12 +14,20 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
         return `1rem`
     }
   }};
+  font-weight: ${props => {
+    switch (props.size) {
+      case 'big':
+        return `600`
+      default:
+        return `400`
+    }
+  }};
   padding: ${props => {
     switch (props.size) {
       case 'big':
-        return `1rem 3rem`
+        return `1.33rem 2.66rem`
       default:
-        return `0.5rem 1rem`
+        return `1rem 2.75rem`
     }
   }};
   border: ${props => {
