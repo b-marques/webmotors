@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400;1,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
   *,
   *::after,
   *::before {
@@ -33,9 +34,9 @@ export const GlobalStyle = createGlobalStyle`
     color: black;
     background: white;
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1.15rem;
     -webkit-font-smoothing: antialiased;
     min-width: 100vw;

@@ -10,7 +10,7 @@ export const Header = styled.button<{ isExpanded: boolean }>`
   background-color: ${props => props.theme.white};
   align-items: center;
   padding: 1rem 0.5rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: ${props => props.theme.secondaryVariant2};

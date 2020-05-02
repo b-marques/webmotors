@@ -24,7 +24,7 @@ export const LocationIcon = styled.div`
   }
 `
 export const Prefix = styled.span`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 1rem;
   color: ${props => props.theme.secondaryVariant2};
@@ -33,7 +33,7 @@ export const Prefix = styled.span`
 export const Input = styled.input`
   flex-grow: 1;
   padding: 1rem 0.5rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   border: 0 solid;
