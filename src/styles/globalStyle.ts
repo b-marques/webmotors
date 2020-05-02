@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.15rem;
     -webkit-font-smoothing: antialiased;
     min-width: 100vw;
