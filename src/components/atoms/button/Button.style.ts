@@ -65,9 +65,11 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
 
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    ${props => (props.variant === 'text' ? `box-shadow: none;` : ``)};
   }
 
   &:active {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    ${props => (props.variant === 'text' ? `box-shadow: none;` : ``)};
   }
 `
