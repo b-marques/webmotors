@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 import { Button as BaseButton } from './Button.style'
 
@@ -14,22 +14,15 @@ type ButtonProps = {
   type?: ButtonType
   onClick: () => void
   color?: string
-  children?: ReactNode
+  label?: string
 }
 
 export const Button = (props: ButtonProps) => {
-  const {
-    type = 'button',
-    size,
-    variant,
-    onClick = () => {},
-    color = '#000',
-    children = '',
-  } = props
+  const { type = 'button', size, variant, label, onClick, color = '#000' } = props
 
   return (
     <BaseButton type={type} size={size} variant={variant} color={color} onClick={onClick}>
-      {children}
+      {label}
     </BaseButton>
   )
 }
