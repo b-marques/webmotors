@@ -9,9 +9,9 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
   font-size: ${props => {
     switch (props.size) {
       case 'big':
-        return `1.2rem`
+        return `1.3rem`
       default:
-        return `1rem`
+        return `1.1rem`
     }
   }};
   font-weight: ${props => {
@@ -25,9 +25,9 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
   padding: ${props => {
     switch (props.size) {
       case 'big':
-        return `1.33rem 2.66rem`
+        return `1.7rem`
       default:
-        return `1rem 2.75rem`
+        return `1.3rem`
     }
   }};
   border: ${props => {

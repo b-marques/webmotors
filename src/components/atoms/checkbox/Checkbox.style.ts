@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   color: ${props => props.theme.secondaryVariant2};
 `
 
@@ -10,8 +10,8 @@ export const Checkmark = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 19px;
+  height: 19px;
   border: 1px solid ${props => props.theme.secondaryVariant2};
   border-radius: 2px;
   margin: 0 0.8rem 0 0;
@@ -20,11 +20,11 @@ export const Checkmark = styled.div`
 export const CheckIcon = styled.div`
   display: flex;
   color: ${props => props.theme.primary};
-  width: 73%;
-  height: 73%;
+  width: 63%;
+  height: auto;
 
   & > svg {
-    height: 100%;
+    width: 100%;
   }
 `
 
