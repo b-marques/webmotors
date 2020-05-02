@@ -40,12 +40,14 @@ export const Header = styled.button<{ isExpanded: boolean }>`
   }
 `
 
-export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean }>`
+export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean; activeItem: number }>`
   font-size: 1rem;
   font-weight: 600;
   padding: 0 5px;
   color: ${props =>
-    props.hasLabel ? props.theme.secondaryVariant1 : props.theme.secondaryVariant2};
+    props.hasLabel || props.activeItem !== 0
+      ? props.theme.secondaryVariant1
+      : props.theme.secondaryVariant2};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

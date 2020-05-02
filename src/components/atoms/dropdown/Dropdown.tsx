@@ -44,7 +44,7 @@ export const Dropdown = (props: DropdownProps<DropdownItem>) => {
         aria-haspopup="listbox"
         aria-expanded={isExpanded}>
         {label ? `${label}:` : label}
-        <Title isExpanded={isExpanded} hasLabel={label !== ''}>
+        <Title isExpanded={isExpanded} hasLabel={label !== ''} activeItem={activeItem}>
           {items.find(item => activeItem === item.id)!.name}
         </Title>
         <Icon isExpanded={isExpanded}>
