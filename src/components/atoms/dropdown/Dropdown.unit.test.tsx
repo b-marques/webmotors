@@ -6,8 +6,8 @@ import { Dropdown } from '.'
 
 afterEach(cleanup)
 
+const defaultOption = { id: 0, name: 'make0' }
 const items = [
-  { id: 0, name: 'make0' },
   { id: 1, name: 'make1' },
   { id: 2, name: 'make2' },
   { id: 3, name: 'make3' },
@@ -21,11 +21,14 @@ test('should render dropdown with items', () => {
       label="label"
       items={items}
       activeItem={0}
+      defaultOption={defaultOption}
       handleSelectItem={() => console.log('item selected')}
     />,
   )
 
   fireEvent.click(screen.getByTestId(/dropdown-label/i))
 
-  screen.getAllByRole('option').forEach((item, i) => expect(item).toHaveTextContent(items[i].name))
+  screen
+    .getAllByRole('option')
+    .forEach((item, i) => expect(item).toHaveTextContent([defaultOption, ...items][i].name))
 })

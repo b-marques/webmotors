@@ -4,6 +4,7 @@ import { FaCaretDown } from 'react-icons/fa'
 import { useOutsideClick } from 'src/utils/hooks/useOutsideClick'
 
 import { Container, Header, Title, Icon, List, Item } from './Dropdown.style'
+import { Loader } from '../loader'
 
 type DropdownItem = {
   id: number
@@ -17,10 +18,19 @@ type DropdownProps<T> = {
   defaultOption: { id: number; name: string }
   handleSelectItem: (id: number) => void
   disabled?: boolean
+  isLoading?: boolean
 }
 
 export const Dropdown = (props: DropdownProps<DropdownItem>) => {
-  const { label, items, activeItem, defaultOption, handleSelectItem, disabled = false } = props
+  const {
+    label,
+    items,
+    activeItem,
+    defaultOption,
+    handleSelectItem,
+    disabled = false,
+    isLoading = false,
+  } = props
   const [isExpanded, setIsExpanded] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLButtonElement>(null)
@@ -68,6 +78,7 @@ export const Dropdown = (props: DropdownProps<DropdownItem>) => {
               {item.name}
             </Item>
           ))}
+          {isLoading && <Loader />}
         </List>
       )}
     </Container>

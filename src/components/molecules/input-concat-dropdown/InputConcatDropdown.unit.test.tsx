@@ -7,14 +7,15 @@ import { InputConcatDropdown } from '.'
 afterEach(cleanup)
 
 let locationInputValue = 'Floripa'
+const defaultOption = { id: 0, name: 'make0' }
 const items = [
-  { id: 0, name: 'make0' },
   { id: 1, name: 'make1' },
   { id: 2, name: 'make2' },
   { id: 3, name: 'make3' },
   { id: 4, name: 'make4' },
   { id: 5, name: 'make5' },
 ]
+
 function setLocationInput(newInput: string) {
   locationInputValue = newInput
 }
@@ -26,6 +27,7 @@ test('render location input', async () => {
         label: 'label',
         items,
         activeItem: 0,
+        defaultOption,
         handleSelectItem: () => console.log('item selected'),
       }}
       input={{ value: locationInputValue, setValue: () => setLocationInput('') }}
@@ -45,6 +47,7 @@ test('render location input', async () => {
         label: 'label',
         items,
         activeItem: 0,
+        defaultOption,
         handleSelectItem: () => console.log('item selected'),
       }}
       input={{ value: locationInputValue, setValue: () => setLocationInput('') }}
@@ -53,5 +56,8 @@ test('render location input', async () => {
   fireEvent.click(screen.getByTestId(/dropdown-label/i))
 
   expect((screen.getByTestId(/location-input/i) as HTMLInputElement).value).toBe('')
-  screen.getAllByRole('option').forEach((item, i) => expect(item).toHaveTextContent(items[i].name))
+
+  screen
+    .getAllByRole('option')
+    .forEach((item, i) => expect(item).toHaveTextContent([defaultOption, ...items][i].name))
 })
