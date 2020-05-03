@@ -14,12 +14,13 @@ type DropdownProps<T> = {
   label: string
   items: Array<T>
   activeItem: number
+  defaultOption: { id: number; name: string }
   handleSelectItem: (id: number) => void
   disabled?: boolean
 }
 
 export const Dropdown = (props: DropdownProps<DropdownItem>) => {
-  const { label, items, activeItem, handleSelectItem, disabled = false } = props
+  const { label, items, activeItem, defaultOption, handleSelectItem, disabled = false } = props
   const [isExpanded, setIsExpanded] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLButtonElement>(null)
@@ -45,7 +46,7 @@ export const Dropdown = (props: DropdownProps<DropdownItem>) => {
         aria-expanded={isExpanded}>
         {label ? `${label}:` : label}
         <Title isExpanded={isExpanded} hasLabel={label !== ''} activeItem={activeItem}>
-          {items.find(item => activeItem === item.id)!.name}
+          {[defaultOption, ...items].find(item => activeItem === item.id)!.name}
         </Title>
         <Icon isExpanded={isExpanded}>
           <FaCaretDown />
@@ -57,7 +58,7 @@ export const Dropdown = (props: DropdownProps<DropdownItem>) => {
           tabIndex={-1}
           role="listbox"
           aria-labelledby={`dropdown-${label}`}>
-          {items.map(item => (
+          {[defaultOption, ...items].map(item => (
             <Item
               key={item.id}
               onClick={() => onItemSelect(item.id)}
