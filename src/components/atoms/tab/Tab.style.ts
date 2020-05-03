@@ -1,22 +1,26 @@
 import styled from 'styled-components'
 
 export const Container = styled.div<{ isActive: boolean }>`
-  max-width: 176.5px;
+  width: 50%;
   height: 73px;
   display: flex;
   align-items: flex-end;
-  justify-content: start;
+  justify-content: space-evenly;
   padding: 5px 20px 18px;
   border-bottom: ${props =>
     props.isActive
       ? `3px solid${props.theme.primary}`
-      : `1px solid${props.theme.secondaryVariant2}`};
+      : `1px solid${props.theme.secondaryVariant3}`};
   color: ${props => (props.isActive ? props.theme.primary : props.theme.secondaryVariant2)};
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: 176.5px;
+  }
 `
 
 export const Icon = styled.div`
   display: flex;
-  width: 100%;
   height: 20px;
   & > svg {
     width: 25px;
