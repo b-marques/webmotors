@@ -15,14 +15,19 @@ export const Container = styled.div<{ isFocused: boolean }>`
 export const LocationIcon = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0 8px;
   color: ${props => props.theme.primary};
 
   svg {
-    height: 25px;
+    height: 19px;
     width: auto;
   }
 `
+export const Text = styled.div`
+  display: flex;
+  align-items: baseline;
+`
+
 export const Prefix = styled.span`
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -31,8 +36,8 @@ export const Prefix = styled.span`
 `
 
 export const Input = styled.input`
-  flex-grow: 1;
-  padding: 1rem 0.5rem;
+  width: 100%;
+  padding: 0 7px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -49,7 +54,7 @@ export const Input = styled.input`
 export const ClearInputIcon = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5rem;
+  padding: 7px;
   color: ${props => props.theme.secondaryVariant2};
 
   &:hover {

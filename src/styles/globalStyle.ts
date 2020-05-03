@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
 
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.15rem;
     -webkit-font-smoothing: antialiased;
     min-width: 100vw;

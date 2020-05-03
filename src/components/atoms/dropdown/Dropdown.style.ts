@@ -4,16 +4,17 @@ export const Container = styled.div`
   position: relative;
 `
 
-export const Header = styled.button<{ isExpanded: boolean }>`
+export const Header = styled.button<{ isExpanded: boolean; disabled: boolean }>`
   width: 100%;
   display: flex;
   background-color: ${props => props.theme.white};
   align-items: center;
-  padding: 1rem 0.5rem;
+  padding: 7px 5px;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: ${props => props.theme.secondaryVariant2};
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
   outline: 0;
 
   ${props =>
@@ -43,7 +44,7 @@ export const Header = styled.button<{ isExpanded: boolean }>`
 export const Title = styled.span<{ isExpanded: boolean; hasLabel: boolean; activeItem: number }>`
   font-size: 1rem;
   font-weight: 600;
-  padding: 0 5px;
+  padding: 0 3px;
   color: ${props =>
     props.hasLabel || props.activeItem !== 0
       ? props.theme.secondaryVariant1
@@ -76,10 +77,10 @@ export const List = styled.ul`
 `
 
 export const Item = styled.li`
-  padding: 0.5rem;
-  outline: 0;
+  padding: 3.5px 7px;
   overflow: hidden;
   text-overflow: ellipsis;
+  outline: 0;
 
   &:hover {
     color: ${props => props.theme.white};

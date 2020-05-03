@@ -9,7 +9,7 @@ export const Container = styled(Card)`
   gap: 14px;
   grid-template-rows: repeat(3, auto) 1fr;
   grid-template-columns: repeat(8, 1fr);
-  padding: 2.7rem 5.8rem;
+  padding: 27px 53px;
 `
 export const Checkboxes = styled.div`
   grid-column: 1 / span 8;

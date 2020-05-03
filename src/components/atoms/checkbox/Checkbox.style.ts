@@ -4,17 +4,18 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   color: ${props => props.theme.secondaryVariant2};
+  cursor: pointer;
 `
 
 export const Checkmark = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   border: 1px solid ${props => props.theme.secondaryVariant2};
   border-radius: 2px;
-  margin: 0 0.8rem 0 0;
+  margin: 0 9px 0 0;
 `
 
 export const CheckIcon = styled.div`
@@ -29,5 +30,6 @@ export const CheckIcon = styled.div`
 `
 
 export const Label = styled.label`
-  padding: 0 3.5rem 0 0;
+  padding: 0 42px 0 0;
+  font-size: 1rem;
 `

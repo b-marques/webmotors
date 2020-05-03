@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { FaMapMarkerAlt, FaTimesCircle } from 'react-icons/fa'
 
-import { Container, LocationIcon, Prefix, Input, ClearInputIcon } from './LocationInput.style'
+import { Container, LocationIcon, Text, Prefix, Input, ClearInputIcon } from './LocationInput.style'
 
 type LocationInputProps = {
   value: string
@@ -24,16 +24,18 @@ export const LocationInput = (props: LocationInputProps) => {
       <LocationIcon data-testid="location-icon">
         <FaMapMarkerAlt />
       </LocationIcon>
-      <Prefix data-testid="location-prefix">Onde:</Prefix>
-      <Input
-        data-testid="location-input"
-        ref={inputRef}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
-        placeholder="Cidade - UF..."
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
+      <Text>
+        <Prefix data-testid="location-prefix">Onde:</Prefix>
+        <Input
+          data-testid="location-input"
+          ref={inputRef}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          placeholder="Cidade - UF..."
+          value={value}
+          onChange={e => setValue(e.target.value)}
+        />
+      </Text>
       <ClearInputIcon data-testid="clear-input-icon" onClick={() => setValue('')}>
         <FaTimesCircle />
       </ClearInputIcon>

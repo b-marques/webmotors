@@ -5,13 +5,14 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
   border-radius: 3px;
   transition: all linear 150ms;
   outline: 0;
+  cursor: pointer;
 
   font-size: ${props => {
     switch (props.size) {
       case 'big':
-        return `1.3rem`
+        return `1.333rem`
       default:
-        return `1.1rem`
+        return `1.167rem`
     }
   }};
   font-weight: ${props => {
@@ -25,9 +26,9 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
   padding: ${props => {
     switch (props.size) {
       case 'big':
-        return `1.7rem`
+        return `16px`
       default:
-        return `1.3rem`
+        return `11px`
     }
   }};
   border: ${props => {
