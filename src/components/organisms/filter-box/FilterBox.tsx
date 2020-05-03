@@ -49,83 +49,35 @@ export const FilterBox = (props: FilterBoxProps) => {
     <Container>
       <Checkboxes>
         {checkboxes.map((checkbox, index) => (
-          <Checkbox
-            key={index}
-            label={checkbox.label}
-            isChecked={checkbox.isChecked}
-            setChecked={checkbox.setChecked}
-          />
+          <Checkbox key={index} {...checkbox} />
         ))}
       </Checkboxes>
       <Location>
         <InputConcatDropdown dropdown={location.dropdown} input={location.input} />
       </Location>
       <Make>
-        <Dropdown
-          label={make.label}
-          activeItem={make.activeItem}
-          handleSelectItem={make.handleSelectItem}
-          items={make.items}
-        />
+        <Dropdown {...make} />
       </Make>
       <Model>
-        <Dropdown
-          label={model.label}
-          activeItem={model.activeItem}
-          handleSelectItem={model.handleSelectItem}
-          items={model.items}
-        />
+        <Dropdown {...model} />
       </Model>
       <Year>
-        <Dropdown
-          label={year.label}
-          activeItem={year.activeItem}
-          handleSelectItem={year.handleSelectItem}
-          items={year.items}
-        />
+        <Dropdown {...year} />
       </Year>
       <Price>
-        <Dropdown
-          label={price.label}
-          activeItem={price.activeItem}
-          handleSelectItem={price.handleSelectItem}
-          items={price.items}
-        />
+        <Dropdown {...price} />
       </Price>
       <Version>
-        <Dropdown
-          label={version.label}
-          activeItem={version.activeItem}
-          handleSelectItem={version.handleSelectItem}
-          items={version.items}
-        />
+        <Dropdown {...version} />
       </Version>
       <AdvancedSearch>
-        <Button
-          onClick={advancedSearch.onClick}
-          size={advancedSearch.size}
-          variant={advancedSearch.variant}
-          color={advancedSearch.color}
-          label={advancedSearch.label}
-        />
+        <Button {...advancedSearch} />
       </AdvancedSearch>
       <ClearFilter>
-        <Button
-          onClick={clearFilter.onClick}
-          size={clearFilter.size}
-          variant={clearFilter.variant}
-          color={clearFilter.color}
-          label={clearFilter.label}
-        />
+        <Button {...clearFilter} />
       </ClearFilter>
       <MainButton>
-        <Button
-          onClick={mainButton.onClick}
-          size={mainButton.size}
-          variant={mainButton.variant}
-          color={mainButton.color}
-          label={mainButton.label}
-        />
+        <Button {...mainButton} />
       </MainButton>
     </Container>
   )

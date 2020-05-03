@@ -18,11 +18,9 @@ export const TabDisplayer = (props: TabDisplayerProps) => {
         {tabs.map((tab, index) => (
           <Tab
             key={`tab-${index}`}
-            icon={tab.icon}
-            actionText={tab.actionText}
-            subjectText={tab.subjectText}
             isActive={index === activeTab}
             onClick={() => setActiveTab(index)}
+            {...tab}
           />
         ))}
       </Tabs>

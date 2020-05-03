@@ -14,12 +14,8 @@ export const InputConcatDropdown = (props: InputConcatDropdownProps) => {
   const { input, dropdown } = props
   return (
     <Container>
-      <LocationInput value={input.value} setValue={input.setValue}></LocationInput>
-      <Dropdown
-        activeItem={dropdown.activeItem}
-        items={dropdown.items}
-        handleSelectItem={dropdown.handleSelectItem}
-        label={dropdown.label}></Dropdown>
+      <LocationInput {...input}></LocationInput>
+      <Dropdown {...dropdown} />
     </Container>
   )
 }
