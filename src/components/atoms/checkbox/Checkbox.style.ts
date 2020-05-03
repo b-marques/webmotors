@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  color: ${props => props.theme.secondaryVariant2};
+  color: ${props => props.theme.secondaryVariant1};
   cursor: pointer;
 `
 
