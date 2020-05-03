@@ -81,6 +81,7 @@ export const Item = styled.li`
   padding: 3.5px 7px;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: default;
   outline: 0;
 
   &:hover {
