@@ -6,12 +6,12 @@ type TabProps = {
   icon: ReactNode
   actionText: string
   subjectText: string
-  onClick: () => void
-  isActive: boolean
+  onClick?: () => void
+  isActive?: boolean
 }
 
 export const Tab = (props: TabProps) => {
-  const { icon, actionText, subjectText, onClick, isActive } = props
+  const { icon, actionText, subjectText, onClick, isActive = false } = props
   return (
     <Container onClick={onClick} isActive={isActive}>
       <Icon>{icon}</Icon>
