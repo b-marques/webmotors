@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react'
 import { FaCaretDown } from 'react-icons/fa'
 
 import { useOutsideClick } from 'src/utils/hooks/useOutsideClick'
+import { Loader } from 'src/components/atoms/loader'
 
 import { Container, Header, Title, Icon, List, Item } from './Dropdown.style'
-import { Loader } from '../loader'
 
 type DropdownItem = {
   id: number

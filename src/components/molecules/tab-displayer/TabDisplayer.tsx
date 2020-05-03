@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react'
 
-import { Container, Tabs, Content } from './TabDisplayer.style'
 import { Tab } from 'src/components/atoms/tab'
+
+import { Container, Tabs, Content } from './TabDisplayer.style'
 
 type TabDisplayerProps = {
   tabs: Array<React.ComponentProps<typeof Tab>>
