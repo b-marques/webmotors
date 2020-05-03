@@ -11,7 +11,7 @@ module.exports = {
     'src/(.*)': '<rootDir>/src/$1',
   },
   moduleDirectories: ['node_modules', 'src'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/**', '!<rootDir>/node_modules/'],
   clearMocks: true,
   resetMocks: true,
 }
