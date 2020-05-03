@@ -34,6 +34,7 @@ export const Header = styled.button<{ isExpanded: boolean; disabled: boolean }>`
 
   &:disabled {
     border: solid 1px ${props => props.theme.secondaryVariant3};
+    opacity: 0.6;
   }
 
   &:disabled * {
