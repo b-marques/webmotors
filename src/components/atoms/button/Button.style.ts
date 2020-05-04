@@ -34,7 +34,7 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
   border: ${props => {
     switch (props.variant) {
       case 'outlined':
-        return `2px solid ${props.color}`
+        return `2px solid ${props.theme[props.color]}`
       default:
         return `0 solid`
     }
@@ -44,7 +44,7 @@ export const Button = styled.button<{ size: string; variant: string; color: stri
       case 'raised':
         return `${props.theme.white}`
       default:
-        return props.color
+        return props.theme[props.color]
     }
   }};
   background-color: ${props => {
