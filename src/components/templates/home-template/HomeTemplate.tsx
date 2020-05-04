@@ -1,18 +1,22 @@
 import React, { ReactNode } from 'react'
 
-import { Navbar, Content } from './HomeTemplate.style'
+import { Navbar, Content, MainFilterBox, LastSearches } from './HomeTemplate.style'
 
 type HomeTemplateProps = {
-  tabDisplayer: ReactNode
   navbar: ReactNode
+  tabDisplayer: ReactNode
+  lastSearches: ReactNode
 }
 
 export const HomeTemplate = (props: HomeTemplateProps) => {
-  const { tabDisplayer, navbar } = props
+  const { navbar, tabDisplayer, lastSearches } = props
   return (
     <>
       <Navbar>{navbar}</Navbar>
-      <Content>{tabDisplayer}</Content>
+      <Content>
+        <MainFilterBox>{tabDisplayer}</MainFilterBox>
+        <LastSearches>{lastSearches}</LastSearches>
+      </Content>
     </>
   )
 }
