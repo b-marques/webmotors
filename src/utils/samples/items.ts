@@ -7,15 +7,10 @@ export const radiusItems = [
   { id: 6, name: '1000km' },
 ]
 
-export const yearItems = [
-  { id: 1, name: '1995' },
-  { id: 1, name: '1996' },
-  { id: 2, name: '2000' },
-  { id: 3, name: '2005' },
-  { id: 4, name: '2012' },
-  { id: 5, name: '2018' },
-  { id: 6, name: '2020' },
-]
+export const yearItems = [...Array(26).keys()].map(n => ({
+  id: n + 1,
+  name: `${2020 - n}`,
+}))
 
 export const priceItems = [
   { id: 1, name: '0,00 ~ 5.000,00' },
