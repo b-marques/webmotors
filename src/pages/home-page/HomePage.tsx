@@ -15,6 +15,7 @@ import { Navbar } from 'src/components/atoms/navbar'
 import { Card } from 'src/components/atoms/card'
 import { Example } from 'src/utils/samples/exampleTabContent'
 import { LastSearchesCards } from 'src/components/molecules/last-searches-cards'
+import { Button } from 'src/components/atoms/button'
 
 const API_URL = process.env.REACT_APP_API_URL || ''
 
@@ -103,6 +104,10 @@ export const HomePage = () => {
         year: { id: 0, name: '' },
       }),
     )
+  }
+
+  function handleSellMyCar() {
+    console.log('redirects to sell page')
   }
 
   return (
@@ -209,6 +214,15 @@ export const HomePage = () => {
                 <Example>Exemplo</Example>
               </Card>,
             ]}
+          />
+        }
+        sellMyCarButton={
+          <Button
+            size="medium"
+            variant="outlined"
+            onClick={handleSellMyCar}
+            color="yellow"
+            label="Vender meu carro"
           />
         }
         lastSearches={lastSearches.length ? <LastSearchesCards cards={lastSearches} /> : <></>}

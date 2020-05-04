@@ -23,7 +23,20 @@ export const Content = styled.div`
 `
 
 export const MainFilterBox = styled.div`
+  position: relative;
   max-width: 933px;
+`
+
+export const SellMyCarButton = styled.div`
+  margin-top: 30px;
+  padding: 5px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `
 
 export const LastSearches = styled.div`
