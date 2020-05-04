@@ -56,6 +56,7 @@ export const ClearInputIcon = styled.div`
   align-items: center;
   padding: 7px;
   color: ${props => props.theme.secondaryVariant2};
+  margin-left: auto;
 
   &:hover {
     color: ${props => props.theme.primary};
