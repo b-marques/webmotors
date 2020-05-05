@@ -1,0 +1,28 @@
+{
+  "data": [
+    { "ID": 1, "Name": "Chevrolet" },
+    { "ID": 2, "Name": "Honda" },
+    { "ID": 3, "Name": "Ford" }
+  ],
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "cache-control": "no-cache",
+    "content-length": "76",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "pragma": "no-cache"
+  },
+  "config": {
+    "url": "http://desafioonline.webmotors.com.br/api/OnlineChallenge//Make?",
+    "method": "get",
+    "headers": { "Accept": "application/json, text/plain, */*" },
+    "transformRequest": [null],
+    "transformResponse": [null],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1
+  },
+  "request": {}
+}
