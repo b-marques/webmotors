@@ -13,7 +13,7 @@ type TabProps = {
 export const Tab = (props: TabProps) => {
   const { icon, actionText, subjectText, onClick, isActive = false } = props
   return (
-    <Container onClick={onClick} isActive={isActive}>
+    <Container role="button" onClick={onClick} isActive={isActive}>
       <Icon>{icon}</Icon>
       <Text>
         <ActionText>{actionText}</ActionText>
