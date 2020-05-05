@@ -1,4 +1,4 @@
-# webmotors
+# webmotors v1.0
 
 Projeto de implementação da páginal inicial da webmotors.
 
@@ -10,7 +10,20 @@ yarn install
 yarn start
 ```
 
+## Tecnologias/Bibliotecas Utilizadas:
+
+- TypeScript
+- ReactJS
+- React-Redux
+- Axios
+- Styled-components
+- React Testing Library
+- Jest
+- Atomic Design
+- ESlint
+- Prettier
 
 <!-- ### ToDo
+
 
 - Dropdown full acessible -->
