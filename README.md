@@ -1,4 +1,4 @@
-# webmotors
+# webmotors v1.0
 
 Projeto de implementação da páginal inicial da webmotors.
 
@@ -9,7 +9,6 @@ yarn install
 
 yarn start
 ```
-
 
 <!-- ### ToDo
 
