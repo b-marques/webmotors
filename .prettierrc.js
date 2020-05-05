@@ -8,14 +8,4 @@ module.exports = {
   bracketSpacing: true,
   jsxBracketSameLine: true,
   arrowParens: 'avoid',
-  parser: 'typescript',
-  overrides: [
-    {
-      files: '*.css',
-      options: {
-        singleQuote: false,
-        parser: 'css',
-      },
-    },
-  ],
 }
