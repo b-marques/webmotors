@@ -9,8 +9,8 @@ export const Container = styled.div<{ isActive: boolean }>`
   padding: 5px 20px 18px;
   border-bottom: ${props =>
     props.isActive
-      ? `3px solid${props.theme.primary}`
-      : `1px solid${props.theme.secondaryVariant3}`};
+      ? `3px solid ${props.theme.primary}`
+      : `1px solid ${props.theme.secondaryVariant3}`};
   color: ${props => (props.isActive ? props.theme.primary : props.theme.secondaryVariant2)};
   cursor: pointer;
 
