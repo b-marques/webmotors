@@ -22,7 +22,7 @@ test('should render dropdown with items', () => {
       items={items}
       activeItem={0}
       defaultOption={defaultOption}
-      handleSelectItem={() => console.log('item selected')}
+      handleSelectItem={() => 0}
     />,
   )
 
@@ -31,4 +31,6 @@ test('should render dropdown with items', () => {
   screen
     .getAllByRole('option')
     .forEach((item, i) => expect(item).toHaveTextContent([defaultOption, ...items][i].name))
+
+  fireEvent.click(screen.getAllByRole('option')[0])
 })
