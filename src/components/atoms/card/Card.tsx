@@ -6,4 +6,4 @@ type CardProps = {
   children?: ReactNode
 }
 
-export const Card = (props: CardProps) => <BaseCard>{props.children}</BaseCard>
+export const Card = (props: CardProps) => <BaseCard data-testid="card">{props.children}</BaseCard>
