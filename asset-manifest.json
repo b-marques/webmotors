@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.js": "/webmotors/static/js/main.5076d2e8.chunk.js",
+    "main.js.map": "/webmotors/static/js/main.5076d2e8.chunk.js.map",
+    "runtime-main.js": "/webmotors/static/js/runtime-main.0b2e2132.js",
+    "runtime-main.js.map": "/webmotors/static/js/runtime-main.0b2e2132.js.map",
+    "static/js/2.0e2af60c.chunk.js": "/webmotors/static/js/2.0e2af60c.chunk.js",
+    "static/js/2.0e2af60c.chunk.js.map": "/webmotors/static/js/2.0e2af60c.chunk.js.map",
+    "index.html": "/webmotors/index.html",
+    "precache-manifest.1962b3075149a90a19b3667ef79f7bb3.js": "/webmotors/precache-manifest.1962b3075149a90a19b3667ef79f7bb3.js",
+    "service-worker.js": "/webmotors/service-worker.js",
+    "static/js/2.0e2af60c.chunk.js.LICENSE.txt": "/webmotors/static/js/2.0e2af60c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/webmotors/static/media/logo.ef770bc7.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b2e2132.js",
+    "static/js/2.0e2af60c.chunk.js",
+    "static/js/main.5076d2e8.chunk.js"
+  ]
+}
