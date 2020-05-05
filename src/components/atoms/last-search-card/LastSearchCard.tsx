@@ -11,7 +11,7 @@ type LastSearchCardProps = {
 export const LastSearchCard = (props: LastSearchCardProps) => {
   const { item } = props
   return (
-    <Container>
+    <Container role="option">
       <Header>
         <Make>{item.make.name}</Make>
       </Header>
