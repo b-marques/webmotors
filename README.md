@@ -10,6 +10,20 @@ yarn install
 yarn start
 ```
 
+## Tecnologias/Bibliotecas Utilizadas:
+
+- TypeScript
+- ReactJS
+- React-Redux
+- Axios
+- Styled-components
+- React Testing Library
+- Jest
+- Atomic Design
+- ESlint
+- Prettier
+
 <!-- ### ToDo
+
 
 - Dropdown full acessible -->
