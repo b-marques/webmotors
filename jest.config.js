@@ -11,7 +11,14 @@ module.exports = {
     'src/(.*)': '<rootDir>/src/$1',
   },
   moduleDirectories: ['node_modules', 'src'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/**', '!<rootDir>/node_modules/'],
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/styles/**',
+    '!<rootDir>/node_modules/',
+    '!src/**/*.d.ts',
+    '!src/serviceWorker.ts',
+    '!src/setupTests.ts',
+  ],
   clearMocks: true,
   resetMocks: true,
 }
