@@ -18,3 +18,29 @@ export function processVersions(data: any) {
     name,
   }))
 }
+
+export function processVehicles(data: any) {
+  return data.map(
+    ({
+      ID: id,
+      Make: make,
+      Model: model,
+      Version: version,
+      Image: image,
+      KM: km,
+      Price: price,
+      YearModel: yearModel,
+      YearFab: yearFab,
+    }: any) => ({
+      id,
+      make,
+      model,
+      version,
+      image,
+      km,
+      price,
+      yearModel,
+      yearFab,
+    }),
+  )
+}
