@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FaCarSide, FaMotorcycle } from 'react-icons/fa'
 
-import { processMakes, processModels, processVersions } from 'src/utils/functions/processData'
+import {
+  processMakes,
+  processModels,
+  processVersions,
+  processVehicles,
+} from 'src/utils/functions/processData'
 import { priceItems, radiusItems, yearItems } from 'src/utils/samples/items'
+import {
+  makeDefaultOption,
+  modelDefaultOption,
+  priceDefaultOption,
+  radiusDefaultOption,
+  versionDefaultOption,
+  yearDefaultOption,
+} from 'src/utils/samples/defaultOptions'
 import { useFetchData } from 'src/utils/hooks/useFetchData'
 import { addLastSearch } from 'src/store/last-searches/actions'
-import { Make, Model, Version, Radius } from 'src/store/last-searches/types'
+import { Make, Model, Version, Radius, Year } from 'src/store/last-searches/types'
 import { RootState } from 'src/store'
 import { TabDisplayer } from 'src/components/molecules/tab-displayer'
 import { FilterBox } from 'src/components/organisms/filter-box'
@@ -16,6 +29,9 @@ import { Card } from 'src/components/atoms/card'
 import { Example } from 'src/utils/samples/exampleTabContent'
 import { LastSearchesCards } from 'src/components/molecules/last-searches-cards'
 import { Button } from 'src/components/atoms/button'
+import { VehicleCardGrid } from 'src/components/molecules/vehicle-card-grid'
+import { useScroll } from 'src/utils/hooks/useScroll'
+import { VehicleCard } from 'src/components/atoms/vehicle-card'
 
 const API_URL = process.env.REACT_APP_API_URL || ''
 
@@ -34,21 +50,49 @@ export const HomePage = () => {
   const [price, setPrice] = useState(0)
   const [version, setVersion] = useState(0)
 
-  const makeItems = useFetchData(`${API_URL}/Make`, {}, true, processMakes)
-  const modelItems = useFetchData(`${API_URL}/Model`, { MakeID: make }, make !== 0, processModels)
-  const versionItems = useFetchData(
-    `${API_URL}/Version`,
+  const [page, setPage] = useState(1)
+  const [vehicles, setVehicles] = useState([])
+  const [hasMore, setHasMore] = useState(true)
+
+  const [filteredVehicles, setFilteredVehicles] = useState([])
+
+  const fetchMake = useFetchData(`${API_URL}Make`, {}, true, processMakes)
+  const fetchModel = useFetchData(`${API_URL}Model`, { MakeID: make }, make !== 0, processModels)
+  const fetchVersion = useFetchData(
+    `${API_URL}Version`,
     { ModelID: model },
     model !== 0,
     processVersions,
   )
 
-  const makeDefaultOption = { id: 0, name: 'Todas' }
-  const modelDefaultOption = { id: 0, name: 'Todos' }
-  const versionDefaultOption = { id: 0, name: 'Todas' }
-  const priceDefaultOption = { id: 0, name: 'Faixa de Preço' }
-  const yearDefaultOption = { id: 0, name: 'Ano Desejado' }
-  const radiusDefaultOption = { id: 0, name: 'Todos' }
+  const updateVehicles = useCallback((newData: []) => {
+    setVehicles(vehicles => [...vehicles, ...newData])
+    setFilteredVehicles(filtered => [...filtered, ...newData])
+  }, [])
+
+  const updateHasMore = useCallback((value: boolean) => {
+    setHasMore(value)
+  }, [])
+
+  const fetchVehicles = useFetchData(
+    `${API_URL}Vehicles`,
+    { Page: page },
+    hasMore,
+    processVehicles,
+    updateVehicles,
+    updateHasMore,
+  )
+
+  const handleScroll = useCallback(() => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+    )
+      return
+    setPage(page => page + 1)
+  }, [])
+
+  useScroll(handleScroll)
 
   function handleSetMake(id: number) {
     if (make !== id) {
@@ -82,28 +126,52 @@ export const HomePage = () => {
   }
 
   function handleShowOffers() {
+    const makeOption =
+      fetchMake.status === 'loaded'
+        ? fetchMake.payload.find((e: Make) => e.id === make) ?? makeDefaultOption
+        : makeDefaultOption
+
+    const modelOption =
+      fetchModel.status === 'loaded'
+        ? fetchModel.payload.find((e: Model) => e.id === model) ?? modelDefaultOption
+        : modelDefaultOption
+
+    const versionOption =
+      fetchVersion.status === 'loaded'
+        ? fetchVersion.payload.find((e: Version) => e.id === version) ?? versionDefaultOption
+        : versionDefaultOption
+
     dispatch(
       addLastSearch({
         isNew,
         isUsed,
         location: locationValue,
-        make:
-          makeItems.status === 'loaded'
-            ? makeItems.payload.find((e: Make) => e.id === make) ?? makeDefaultOption
-            : makeDefaultOption,
-        model:
-          modelItems.status === 'loaded'
-            ? modelItems.payload.find((e: Model) => e.id === model) ?? modelDefaultOption
-            : modelDefaultOption,
+        make: makeOption,
+        model: modelOption,
         price: { id: 0, name: '' },
         radius: radiusItems.find((e: Radius) => e.id === radius) ?? radiusDefaultOption,
-        version:
-          versionItems.status === 'loaded'
-            ? versionItems.payload.find((e: Version) => e.id === version) ?? versionDefaultOption
-            : versionDefaultOption,
-        year: { id: 0, name: '' },
+        version: versionOption,
+        year: yearItems.find((e: Year) => e.id === year) ?? yearDefaultOption,
       }),
     )
+
+    let newFilteredVehicles = [...vehicles]
+    if (makeOption.id !== 0)
+      newFilteredVehicles = newFilteredVehicles.filter(
+        (vehicle: React.ComponentProps<typeof VehicleCard>) => vehicle.make === makeOption.name,
+      )
+
+    if (modelOption.id !== 0)
+      newFilteredVehicles = newFilteredVehicles.filter(
+        (vehicle: React.ComponentProps<typeof VehicleCard>) => vehicle.model === modelOption.name,
+      )
+
+    if (versionOption.id !== 0)
+      newFilteredVehicles = newFilteredVehicles.filter(
+        (vehicle: React.ComponentProps<typeof VehicleCard>) => vehicle.version === modelOption.name,
+      )
+
+    setFilteredVehicles(newFilteredVehicles)
   }
 
   function handleSellMyCar() {
@@ -149,20 +217,20 @@ export const HomePage = () => {
                 }}
                 make={{
                   label: 'Marca',
-                  items: makeItems.status === 'loaded' ? makeItems.payload : [],
+                  items: fetchMake.status === 'loaded' ? fetchMake.payload : [],
                   activeItem: make,
                   defaultOption: makeDefaultOption,
                   handleSelectItem: handleSetMake,
-                  isLoading: makeItems.status === 'loading',
+                  isLoading: fetchMake.status === 'loading',
                 }}
                 model={{
                   label: 'Modelo',
-                  items: modelItems.status === 'loaded' ? modelItems.payload : [],
+                  items: fetchModel.status === 'loaded' ? fetchModel.payload : [],
                   activeItem: model,
                   defaultOption: modelDefaultOption,
                   handleSelectItem: handleSetModel,
                   disabled: make === 0,
-                  isLoading: modelItems.status === 'loading',
+                  isLoading: fetchModel.status === 'loading',
                 }}
                 year={{
                   label: '',
@@ -180,12 +248,12 @@ export const HomePage = () => {
                 }}
                 version={{
                   label: 'Versão',
-                  items: versionItems.status === 'loaded' ? versionItems.payload : [],
+                  items: fetchVersion.status === 'loaded' ? fetchVersion.payload : [],
                   activeItem: version,
                   defaultOption: versionDefaultOption,
                   handleSelectItem: setVersion,
                   disabled: model === 0,
-                  isLoading: versionItems.status === 'loading',
+                  isLoading: fetchVersion.status === 'loading',
                 }}
                 advancedSearch={{
                   size: 'medium',
@@ -226,6 +294,12 @@ export const HomePage = () => {
           />
         }
         lastSearches={lastSearches.length ? <LastSearchesCards cards={lastSearches} /> : <></>}
+        vehicleCards={
+          <VehicleCardGrid
+            cards={filteredVehicles}
+            isLoading={fetchVehicles.status === 'loading'}
+          />
+        }
       />
     </>
   )
