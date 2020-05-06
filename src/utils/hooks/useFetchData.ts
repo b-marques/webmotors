@@ -8,6 +8,8 @@ export const useFetchData = (
   params: any,
   shouldFetch: boolean,
   processData: Function,
+  updateState?: Function,
+  updateHasMore?: Function,
 ) => {
   const [result, setResult] = useState<Fetch>({
     status: 'init',
@@ -24,7 +26,10 @@ export const useFetchData = (
       axios
         .get(`${url}?${queryString}`)
         .then((response: any) => {
-          if (mounted) setResult({ status: 'loaded', payload: processData(response.data) })
+          const processedData = processData(response.data)
+          if (mounted && updateState) updateState(processedData)
+          if (mounted && updateHasMore && processedData.length === 0) updateHasMore(false)
+          if (mounted) setResult({ status: 'loaded', payload: processedData })
         })
         .catch((error: any) => {
           if (mounted) setResult({ status: 'error', error })
@@ -33,7 +38,7 @@ export const useFetchData = (
     return () => {
       mounted = false
     }
-  }, [shouldFetch, queryString, url, processData])
+  }, [shouldFetch, queryString, url, processData, updateState, updateHasMore])
 
   return result
 }
