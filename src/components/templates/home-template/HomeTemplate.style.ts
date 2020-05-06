@@ -52,3 +52,8 @@ export const LastSearches = styled.div`
     max-width: 933px;
   }
 `
+
+export const VehicleCards = styled.div`
+  padding: 30px;
+  width: 100%;
+`
