@@ -2,6 +2,14 @@
 
 Projeto de implementação da páginal inicial da webmotors.
 
+## Desktop:
+
+![Desktop](screenshots/desktop.gif)
+
+## Responsive:
+
+![Responsive](screenshots/responsive.gif)
+
 Para executar o projeto localmente basta executar os seguintes comandos:
 
 ```
